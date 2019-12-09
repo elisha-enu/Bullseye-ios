@@ -83,7 +83,7 @@ struct ContentView: View {
                     print("Button pressed!")
                     self.isAlertVisible = true
                 }) {
-                    Text(/*@START_MENU_TOKEN@*/"Hit me"/*@END_MENU_TOKEN@*/)
+                    Text(/*@START_MENU_TOKEN@*/"Hit me"/*@END_MENU_TOKEN@*/).modifier(ButtonLargeTextStyle())
                 }
                 .alert(isPresented: $isAlertVisible) { () ->
                     Alert in
@@ -103,7 +103,7 @@ struct ContentView: View {
                     )
                 }
                 .background(Image("Button"))
-                .modifier(ButtonLargeTextStyle())
+                .modifier(ShadowStyle())
             }
             Spacer()
             
@@ -114,11 +114,11 @@ struct ContentView: View {
                 }) {
                     HStack {
                         Image("StartOverIcon")
-                        Text("Start over")
+                        Text("Start over").modifier(ButtonSmallTextStyle())
                     }
                 }
                 .background(Image("Button"))
-                .modifier(ButtonSmallTextStyle())
+                .modifier(ShadowStyle())
                 
                 Spacer()
                 Text("Score:").modifier(LabelStyle())
@@ -128,21 +128,20 @@ struct ContentView: View {
                 Text("\(round)").modifier(ValueStyle())
                 Spacer()
                 
-                Button(action: {
-                    print("Info!")
-                }) {
+                NavigationLink(destination: AboutView()){
                     HStack {
                         Image("InfoIcon")
-                        Text("Info")
+                        Text("Info").modifier(ButtonSmallTextStyle())
                     }
                 }
                 .background(Image("Button"))
-                .modifier(ButtonSmallTextStyle())
+                .modifier(ShadowStyle())
             }
             .padding(.bottom, 20)
         }
         .background(Image("Background"), alignment: .center)
         .accentColor(midnightBlue)
+        .navigationBarTitle("Bullseye")
     }
     
     func sliderValueRounded() -> Int {
