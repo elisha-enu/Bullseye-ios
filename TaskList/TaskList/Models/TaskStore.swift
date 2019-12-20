@@ -6,4 +6,17 @@
 //  Copyright © 2019 Elisha Limanu. All rights reserved.
 //
 
-import Foundation
+class TaskStore {
+    var tasks = [
+        "Code a SwiftUI app"),
+        "Belajar"),
+        "Kerja"),
+        "Main"),
+        "Tidur"),
+        "Jalan"),
+        "Main skateboard"),
+        "Beli baju"),
+        "Masak"),
+        "Bersih2")
+    ]
+}
